@@ -21,7 +21,7 @@ class CourseRepositoryImpl implements CourseRepository {
 
   @override
   Future<void> createCourse(Course course) async {
-    final url = Uri.parse('$baseUrl/courses');
+    final url = Uri.parse('$baseUrl/courses'); 
 
       final Map<String, dynamic> data = {
         'description': course.description,
