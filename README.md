@@ -4,6 +4,8 @@ Este é o repositório do aplicativo desktop de cadastro de alunos e cursos dese
 
 ## Pré-requisitos
 
+A API se encontra nesse repositório: https://github.com/mfsaraujo2014/apicadastroalunocurso
+
 Antes de começar, certifique-se de ter instalado em sua máquina:
 
 - Flutter SDK
@@ -23,7 +25,7 @@ Siga estas etapas para configurar e executar o projeto em sua máquina local:
    ```bash
    flutter run
 
-**Uso da API**
+**Uso do APP**
 
 O aplicativo será executado em seu dispositivo ou emulador configurado. Use o aplicativo para gerenciar o cadastro de alunos e cursos.
 
