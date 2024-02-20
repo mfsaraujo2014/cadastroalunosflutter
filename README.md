@@ -18,7 +18,7 @@ Siga estas etapas para configurar e executar o projeto em sua máquina local:
 1. **Clone este repositório para sua máquina local:**
 
    ```bash
-   git clone https://github.com/seu-usuario/apicadastroalunocurso.git
+   git clone https://github.com/mfsaraujo2014/apicadastroalunocurso.git
 
 2. **Execute o aplicativo:**
 
