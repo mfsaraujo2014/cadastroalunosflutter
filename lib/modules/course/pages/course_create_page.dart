@@ -59,7 +59,7 @@ class CourseCreatePage extends StatelessWidget {
                       backgroundColor: Colors.green,
                     ),
                   );
-                  Navigator.of(context).pop(); // Voltar para a página anterior
+                  Navigator.of(context).pop();
                 }
               },
               child: Text('Criar Curso'),

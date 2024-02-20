@@ -36,7 +36,7 @@ class StudentListItem extends StatelessWidget {
                 children: [
                   Text('Código: ${student.code}'),
                   Text('Nome: ${student.name}'),
-                  Text('Cursos do aluno: '),
+                  Text('O aluno está matriculado nos cursos: '),
                   if (student.courses != null) ...{
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,

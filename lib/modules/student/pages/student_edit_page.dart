@@ -31,29 +31,39 @@ class StudentEditPage extends StatelessWidget {
             ),
             Observer(
               builder: (_) => TextFormField(
-                initialValue: student.name,
-                onChanged: _studentEditStore.setName,
+                initialValue: _studentEditStore.name = student.name,
+                onChanged: (newValue) => _studentEditStore.setName(newValue),
               ),
             ),
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: () async {
-                await _studentEditStore.updateStudent(student);
-                if (_studentEditStore.hasError) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text('Erro: ${_studentEditStore.error!}'),
-                      backgroundColor: Colors.red,
-                    ),
-                  );
+                if (_studentEditStore.name != student.name) {
+                  await _studentEditStore.updateStudent(student);
+                  if (_studentEditStore.hasError) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text('Erro: ${_studentEditStore.error!}'),
+                        backgroundColor: Colors.red,
+                      ),
+                    );
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text('Estudante atualizado com sucesso!'),
+                        backgroundColor: Colors.green,
+                      ),
+                    );
+                    Navigator.of(context).pop();
+                  }
                 } else {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
-                      content: Text('Estudante atualizado com sucesso!'),
-                      backgroundColor: Colors.green,
+                      content: Text('Nenhuma alteração foi feita.'),
+                      backgroundColor: Colors.orange,
                     ),
                   );
-                  Navigator.of(context).pop(); // Voltar para a página anterior
+                    Navigator.of(context).pop();
                 }
               },
               child: Text('Salvar Alterações'),

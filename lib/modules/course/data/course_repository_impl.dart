@@ -25,7 +25,7 @@ class CourseRepositoryImpl implements CourseRepository {
 
       final Map<String, dynamic> data = {
         'description': course.description,
-        'courseprogram': course.description,
+        'courseprogram': course.courseprogram,
         'code': course.code,
       };
 

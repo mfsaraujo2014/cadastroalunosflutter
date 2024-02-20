@@ -58,9 +58,9 @@ class HomePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(icon, size: 100.0), // Ícone
+            Icon(icon, size: 100.0),
             SizedBox(height: 8.0),
-            Text(label, style: TextStyle(fontSize: 20.0)), // Texto
+            Text(label, style: TextStyle(fontSize: 20.0)),
           ],
         ),
       ),

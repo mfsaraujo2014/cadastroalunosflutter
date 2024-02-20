@@ -30,8 +30,8 @@ class CourseEditPage extends StatelessWidget {
             ),
             Observer(
               builder: (_) => TextFormField(
-                initialValue: course.description,
-                onChanged: _courseEditStore.setDescription,
+                initialValue: _courseEditStore.description = course.description,
+                onChanged: (newValue) => _courseEditStore.setDescription(newValue),
               ),
             ),
             SizedBox(height: 20),
@@ -41,29 +41,39 @@ class CourseEditPage extends StatelessWidget {
             ),
             Observer(
               builder: (_) => TextFormField(
-                initialValue: course.courseprogram,
-                onChanged: _courseEditStore.setCourseProgram,
+                initialValue: _courseEditStore.courseprogram = course.courseprogram,
+                onChanged: (newValue) => _courseEditStore.setCourseProgram(newValue),
               ),
             ),
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: () async {
-                await _courseEditStore.updateCourse(course);
-                if (_courseEditStore.hasError) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text('Erro: ${_courseEditStore.error!}'),
-                      backgroundColor: Colors.red,
-                    ),
-                  );
+                if (_courseEditStore.description != course.description || _courseEditStore.courseprogram != course.courseprogram) {
+                  await _courseEditStore.updateCourse(course);
+                  if (_courseEditStore.hasError) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text('Erro: ${_courseEditStore.error!}'),
+                        backgroundColor: Colors.red,
+                      ),
+                    );
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text('Curso atualizado com sucesso!'),
+                        backgroundColor: Colors.green,
+                      ),
+                    );
+                    Navigator.of(context).pop();
+                  }
                 } else {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
-                      content: Text('Curso atualizado com sucesso!'),
-                      backgroundColor: Colors.green,
+                      content: Text('Nenhuma alteração foi feita.'),
+                      backgroundColor: Colors.orange,
                     ),
                   );
-                  Navigator.of(context).pop(); // Voltar para a página anterior
+                    Navigator.of(context).pop();
                 }
               },
               child: Text('Salvar Alterações'),

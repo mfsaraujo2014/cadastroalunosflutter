@@ -48,7 +48,7 @@ class StudentListPage extends StatelessWidget {
                 foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
                 shape: MaterialStateProperty.all<OutlinedBorder>(
                   RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0), // Borda arredondada
+                    borderRadius: BorderRadius.circular(10.0),
                   ),
                 ),
                 padding: MaterialStateProperty.all<EdgeInsetsGeometry>(

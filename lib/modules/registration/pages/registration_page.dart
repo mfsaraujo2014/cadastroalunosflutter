@@ -22,7 +22,6 @@ class RegistrationPage extends StatelessWidget {
             ),
             Observer(
               builder: (_) => TextFormField(
-                // initialValue: _registrationStore.studentCode.toString(),
                 onChanged: (value) {
                   if (value.isNotEmpty) {
                     _registrationStore.setStudentCode(int.parse(value));
@@ -38,7 +37,6 @@ class RegistrationPage extends StatelessWidget {
             ),
             Observer(
               builder: (_) => TextFormField(
-                // initialValue: _registrationStore.courseCode.toString(),
                 onChanged: (value) {
                   if (value.isNotEmpty) {
                     _registrationStore.setCourseCode(int.parse(value));
@@ -69,7 +67,7 @@ class RegistrationPage extends StatelessWidget {
                       backgroundColor: Colors.green,
                     ),
                   );
-                  Navigator.of(context).pop(); // Voltar para a página anterior
+                  Navigator.of(context).pop();
                 }
               },
               child: Text('Enviar Matrícula'),
