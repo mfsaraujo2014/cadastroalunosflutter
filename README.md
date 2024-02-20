@@ -6,8 +6,8 @@ Este é o repositório do aplicativo desktop de cadastro de alunos e cursos dese
 
 Antes de começar, certifique-se de ter instalado em sua máquina:
 
--Flutter SDK
--Editor de código (por exemplo, Visual Studio Code)
+- Flutter SDK
+- Editor de código (por exemplo, Visual Studio Code)
 
 ## Getting Started
 
