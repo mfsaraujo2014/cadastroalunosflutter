@@ -22,7 +22,7 @@ class RegistrationPage extends StatelessWidget {
             ),
             Observer(
               builder: (_) => TextFormField(
-                initialValue: _registrationStore.studentCode.toString(),
+                // initialValue: _registrationStore.studentCode.toString(),
                 onChanged: (value) {
                   if (value.isNotEmpty) {
                     _registrationStore.setStudentCode(int.parse(value));
@@ -38,7 +38,7 @@ class RegistrationPage extends StatelessWidget {
             ),
             Observer(
               builder: (_) => TextFormField(
-                initialValue: _registrationStore.courseCode.toString(),
+                // initialValue: _registrationStore.courseCode.toString(),
                 onChanged: (value) {
                   if (value.isNotEmpty) {
                     _registrationStore.setCourseCode(int.parse(value));
@@ -62,8 +62,6 @@ class RegistrationPage extends StatelessWidget {
                     ),
                   );
                 } else {
-                  _registrationStore.setStudentCode(0);
-                  _registrationStore.setCourseCode(0);
 
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
@@ -71,6 +69,7 @@ class RegistrationPage extends StatelessWidget {
                       backgroundColor: Colors.green,
                     ),
                   );
+                  Navigator.of(context).pop(); // Voltar para a página anterior
                 }
               },
               child: Text('Enviar Matrícula'),

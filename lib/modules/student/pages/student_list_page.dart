@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_cadastro_alunos/common/entities/student.dart';
 import 'package:flutter_application_cadastro_alunos/modules/student/data/student_list_store.dart';
 import 'package:flutter_application_cadastro_alunos/modules/student/data/student_repository_impl.dart';
+import 'package:flutter_application_cadastro_alunos/modules/student/pages/student_create_page.dart';
 import 'package:flutter_application_cadastro_alunos/modules/student/widgets/student_list_item.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
@@ -28,6 +29,35 @@ class StudentListPage extends StatelessWidget {
             ),
           ),
         ),
+        actions: [
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 20.0),
+            child: ElevatedButton.icon(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => StudentCreatePage(studentListStore: _studentListStore),
+                  ),
+                );
+              },
+              icon: Icon(Icons.add),
+              label: Text('Criar Aluno'),
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(Colors.purple),
+                foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+                shape: MaterialStateProperty.all<OutlinedBorder>(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0), // Borda arredondada
+                  ),
+                ),
+                padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
+                  EdgeInsets.symmetric(vertical: 12.0, horizontal: 30.0),
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
       body: Observer(
         builder: (context) {
@@ -52,7 +82,7 @@ class StudentListPage extends StatelessWidget {
               itemCount: students.length,
               itemBuilder: (context, index) {
                 final student = students[index];
-                return StudentListItem(student: student);
+                return StudentListItem(student: student, studentListStore: _studentListStore,);
               },
             );
           }

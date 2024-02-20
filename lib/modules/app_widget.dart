@@ -6,6 +6,7 @@ class AppWidget extends StatelessWidget {
   Widget build(BuildContext context){
      Modular.setInitialRoute('/');
     return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.blue),
       routeInformationParser: Modular.routeInformationParser,
       routerDelegate: Modular.routerDelegate,

@@ -11,6 +11,17 @@ class Student {
     this.courses,
   });
 
+  Student copyWith({
+    String? name,
+  }) {
+    return Student(
+      code: code,
+      name: name ?? this.name,
+    );
+  }
+
+  
+
   factory Student.fromJson(Map<String, dynamic> json) {
     List<Course>? courses;
     if (json['courses'] != null) {

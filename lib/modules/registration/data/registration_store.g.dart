@@ -41,6 +41,38 @@ mixin _$RegistrationStore on _RegistrationStore, Store {
     });
   }
 
+  late final _$isErrorAtom =
+      Atom(name: '_RegistrationStore.isError', context: context);
+
+  @override
+  bool get isError {
+    _$isErrorAtom.reportRead();
+    return super.isError;
+  }
+
+  @override
+  set isError(bool value) {
+    _$isErrorAtom.reportWrite(value, super.isError, () {
+      super.isError = value;
+    });
+  }
+
+  late final _$errorMessageAtom =
+      Atom(name: '_RegistrationStore.errorMessage', context: context);
+
+  @override
+  String? get errorMessage {
+    _$errorMessageAtom.reportRead();
+    return super.errorMessage;
+  }
+
+  @override
+  set errorMessage(String? value) {
+    _$errorMessageAtom.reportWrite(value, super.errorMessage, () {
+      super.errorMessage = value;
+    });
+  }
+
   late final _$enrollAsyncAction =
       AsyncAction('_RegistrationStore.enroll', context: context);
 
@@ -79,7 +111,9 @@ mixin _$RegistrationStore on _RegistrationStore, Store {
   String toString() {
     return '''
 studentCode: ${studentCode},
-courseCode: ${courseCode}
+courseCode: ${courseCode},
+isError: ${isError},
+errorMessage: ${errorMessage}
     ''';
   }
 }

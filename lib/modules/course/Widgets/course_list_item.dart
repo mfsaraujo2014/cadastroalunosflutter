@@ -1,11 +1,15 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_cadastro_alunos/common/entities/course.dart';
+import 'package:flutter_application_cadastro_alunos/modules/course/data/course_list_store.dart';
+import 'package:flutter_application_cadastro_alunos/modules/course/pages/course_edit_page.dart';
 
 class CourseListItem extends StatelessWidget {
   final Course course;
+  final CourseListStore courseListStore;
 
-  const CourseListItem({required this.course});
+
+  const CourseListItem({required this.course, required this.courseListStore});
 
   @override
   Widget build(BuildContext context) {
@@ -44,6 +48,17 @@ class CourseListItem extends StatelessWidget {
           }
         ],
       ),
+      trailing: IconButton(
+        icon: Icon(Icons.edit, color: Colors.purple,),
+        onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => CourseEditPage(course: course, courseListStore: courseListStore),
+                        ),
+                      );
+                    },
+      ),
       onTap: () {
         showDialog(
           context: context,
@@ -54,8 +69,9 @@ class CourseListItem extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Nome: ${course.code}'),
-                  Text('Código: ${course.description}'),
+                  Text('Código: ${course.code}'),
+                  Text('Descrição: ${course.description}'),
+                  Text('Ementa: ${course.courseprogram}'),
                   Text('Alunos Matriculados: '),
                   if (course.students != null) ...{
                     Column(
