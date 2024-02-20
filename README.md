@@ -1,16 +1,32 @@
-# flutter_application_cadastro_alunos
+# Aplicativo de Cadastro de Alunos e Cursos
 
-A new Flutter project.
+Este é o repositório do aplicativo desktop de cadastro de alunos e cursos desenvolvido em Flutter. Aqui você encontrará o código-fonte do aplicativo.
+
+## Pré-requisitos
+
+Antes de começar, certifique-se de ter instalado em sua máquina:
+
+-Flutter SDK
+-Editor de código (por exemplo, Visual Studio Code)
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Siga estas etapas para configurar e executar o projeto em sua máquina local:
 
-A few resources to get you started if this is your first Flutter project:
+1. **Clone este repositório para sua máquina local:**
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+   ```bash
+   git clone https://github.com/seu-usuario/apicadastroalunocurso.git
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+2. **Execute o aplicativo:**
+
+   ```bash
+   flutter run
+
+**Uso da API**
+
+O aplicativo será executado em seu dispositivo ou emulador configurado. Use o aplicativo para gerenciar o cadastro de alunos e cursos.
+
+**Contribuindo**
+
+Contribuições são bem-vindas! Sinta-se à vontade para abrir uma issue ou enviar um pull request.
